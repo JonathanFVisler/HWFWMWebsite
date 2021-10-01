@@ -1,0 +1,20 @@
+<nav>
+    <a  routerLink="/dashboard">Dashboard</a>
+</nav>
+<table >
+    <tr style="vertical-align:top">
+        <th>
+            <h2></h2>
+            <ul class="essence-list" style="padding: 20px 0px 0px 20px">
+                <li *ngFor="let essence of essences" (click)="onSelect(essence)" align=left>
+                    <b>
+                        <span>{{essence.id}}</span> {{essence.name}}
+                    </b>
+                </li>
+            </ul>
+        </th>
+        <th>
+            <app-essence-details [essence]="selectedEssence" align=left></app-essence-details>
+        </th>
+    </tr>
+</table>

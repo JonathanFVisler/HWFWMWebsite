@@ -1,0 +1,31 @@
+<nav>
+    <a routerLink="/essences">Esssence List</a>
+</nav>
+<h2>Essences</h2>
+<div class="essences-menu">
+    <h2>COMMON</h2>
+    <a *ngFor="let essence of getEssencesOfRarity(1)"
+     routerLink="/essence/{{essence.id}}">
+        {{essence.name}}
+    </a>
+    <h2>UNCOMMON</h2>
+    <a *ngFor="let essence of getEssencesOfRarity(2)"
+     routerLink="/essence/{{essence.id}}">
+        {{essence.name}}
+    </a>
+    <h2>RARE</h2>
+    <a *ngFor="let essence of getEssencesOfRarity(3)"
+     routerLink="/essence/{{essence.id}}">
+        {{essence.name}}
+    </a>
+    <h2>EPIC</h2>
+    <a *ngFor="let essence of getEssencesOfRarity(4)"
+     routerLink="/essence/{{essence.id}}">
+        {{essence.name}}
+    </a>
+    <h2>LEGENDARY</h2>
+    <a *ngFor="let essence of getEssencesOfRarity(5)"
+     routerLink="/essence/{{essence.id}}">
+        {{essence.name}}
+    </a>
+</div>
