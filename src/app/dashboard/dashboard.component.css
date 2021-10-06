@@ -27,10 +27,11 @@ a {
   display: inline-block;
   color: #fff;
   text-align: center;
-  width: 100%;
-  min-width: 70px;
+  width: 19.5vw;
+  /* min-width: 70px; */
   margin: .5rem auto;
   box-sizing: border-box;
+  word-wrap: word-break;
 
   /* flexbox */
   order: 0;
@@ -39,10 +40,10 @@ a {
 }
 
 @media (min-width: 600px) {
-  a {
+  /* a {
     width: 18%;
     box-sizing: content-box;
-  }
+  } */
 }
 
 a:hover {

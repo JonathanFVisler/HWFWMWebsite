@@ -30,7 +30,8 @@ export class InMemoryDataService implements InMemoryDbService{
       { id: 19, name: 'Shovel', rarity: 1, description: "This essence has no description", isConfluence: false, isCanon: true },
       { id: 20, name: 'Technology', rarity: 1, description: "This essence has no description", isConfluence: false, isCanon: true },
       { id: 21, name: 'Zeal', rarity: 3, description: "This essence has no description", isConfluence: false, isCanon: true },
-      { id: 22, name: 'Zeal', rarity: 3, description: "This essence has no description", isConfluence: false, isCanon: true }
+      { id: 22, name: 'Zeal', rarity: 3, description: "This essence has no description", isConfluence: false, isCanon: true },
+      { id: 23, name: 'EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE', rarity: 0, description: "This essence has no description", isConfluence: true, isCanon: false }
     ];
     return { essences };
   }

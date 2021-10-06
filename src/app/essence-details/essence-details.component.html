@@ -1,15 +1,15 @@
 <table>
-    <tr align:left>
+    <!-- <tr align:left>
         <button (click)="goBack()" align:left>Back</button>
-    </tr>
+    </tr> -->
     <tr>
         <div *ngIf="essence">
             <h2>{{essence.name | uppercase}}</h2>
             <div>
-                <label for="essence-name">name: {{essence.name}}</label>
+                <label for="essence-name">Name: {{essence.name}}</label>
             </div>
-            <div>
-                <label for="essence-rarity">rarity: {{rarityNumberToString(essence.rarity)}} </label>
+            <div *ngIf="essence.rarity!=0">
+                <label for="essence-rarity">Rarity: {{rarityNumberToString(essence.rarity)}} </label>
             </div>
             <div>
                 <label for="essence-confluence">Confluence: {{boolToYesNo(essence.isConfluence)}} </label>

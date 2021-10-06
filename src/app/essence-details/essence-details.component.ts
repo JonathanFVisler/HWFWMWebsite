@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Essence } from '../essence'
-import { supportFunctions } from '../support-functions'
+import { supportFunctions } from '../support-functions';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { EssenceService } from '../essence.service';

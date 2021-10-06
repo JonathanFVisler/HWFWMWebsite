@@ -1,4 +1,4 @@
-
+import { Essence } from './essence'
 
 export class supportFunctions {
     static rarityNumberToString(number: Number): string {
@@ -29,5 +29,21 @@ export class supportFunctions {
             return "Yes";
         }
         return "No";
+    }
+
+    static getEssencesOfRarity(rarity: Number, essences: Essence[]): Essence[] {
+        return essences.filter(essence => essence.rarity == rarity);
+    }
+
+    static getConFluenceEssences(essences: Essence[]): Essence[] {
+        return this.getEssencesOfRarity(0, essences);
+    }
+    
+    static getEssencesInLextograficOrder(essences: Essence[]): Essence[] {
+        return essences.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    static getEssencesInIdOrder(essences: Essence[]): Essence[] {
+        return essences.sort((a, b) => a.id - b.id);
     }
 }

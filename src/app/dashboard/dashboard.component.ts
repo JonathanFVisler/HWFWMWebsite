@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Essence } from '../essence';
 import { EssenceService } from './../essence.service';
+import { supportFunctions } from '../support-functions';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +10,8 @@ import { EssenceService } from './../essence.service';
 })
 export class DashboardComponent implements OnInit {
   essences: Essence[] = [];
+  displayBaseEssences: boolean = true;
+  displayConfluences: boolean = true;
 
   constructor(private essenceService: EssenceService) { }
 
@@ -21,7 +24,15 @@ export class DashboardComponent implements OnInit {
   }
 
   getEssencesOfRarity(rarity: Number): Essence[] {
-    return this.essences.filter(essence => essence.rarity == rarity);
+    return supportFunctions.getEssencesOfRarity(rarity, this.essences);
+  }
+
+  getConfluenceEssences() {
+    return supportFunctions.getConFluenceEssences(this.essences);
+  }
+
+  setDisplayConfluence(input: boolean): void {
+    this.displayConfluences = input;
   }
 
 }

@@ -1,20 +1,112 @@
+<head>
+    <style>
+    .hiddenScrollbar {
+        background-color: #eee;
+        width: 150px;
+        height: 80.2vh;
+        border: 3px solid black;
+        word-wrap: break-word;
+        overflow-y: scroll; /* Add the ability to scroll */
+    }
+    
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .hiddenScrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .hiddenScrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .list-element {
+        border-top: 1px solid grey;
+        border-bottom: 1px solid grey;
+    }
+
+    .essence-list{
+        padding: 0vh 0vh 0vh 1vh;
+    }
+
+    .essence-display{
+        background-color: #eee;
+        width: 86vw;
+        max-width: 86vw;
+        height: auto;
+        /* min-height: 600px; */
+        border: 3px solid black;
+        word-wrap: word-break;
+        padding-left: 1vw;
+    }
+    </style>
+</head>
+
 <nav>
     <a  routerLink="/dashboard">Dashboard</a>
 </nav>
+<table>
+    <tr>
+        <th><button (click)="displayBaseEssences=true; displayConfluences=false">Base</button></th>
+        <th><button (click)="displayBaseEssences=false; displayConfluences=true">Confluence</button></th>
+        <th><button (click)="displayBaseEssences=true; displayConfluences=true">All</button></th>
+    </tr>
+</table>
 <table >
     <tr style="vertical-align:top">
         <th>
-            <h2></h2>
-            <ul class="essence-list" style="padding: 20px 0px 0px 20px">
-                <li *ngFor="let essence of essences" (click)="onSelect(essence)" align=left>
-                    <b>
-                        <span>{{essence.id}}</span> {{essence.name}}
-                    </b>
-                </li>
-            </ul>
+            <div class="hiddenScrollbar" id="">
+                <div *ngIf="displayBaseEssences">            
+                    <h3>COMMON</h3>
+                    <ul class="essence-list">
+                        <li *ngFor="let essence of getEssencesOfRarity(1, getEssencesInLextograficOrder())" (click)="onSelect(essence)" align=left>
+                            <div class="list-element">{{essence.id}} {{essence.name}}</div>
+                        </li>
+                    </ul>
+                    <h3>UNCOMMON</h3>
+                    <ul class="essence-list">
+                        <li *ngFor="let essence of getEssencesOfRarity(2, getEssencesInLextograficOrder())" (click)="onSelect(essence)" align=left>
+                            <div class="list-element">{{essence.id}} {{essence.name}}</div>
+                        </li>
+                    </ul>
+                    
+                    <h3>RARE</h3>
+                    <ul class="essence-list">
+                        <li *ngFor="let essence of getEssencesOfRarity(3, getEssencesInLextograficOrder())" (click)="onSelect(essence)" align=left>
+                            <div class="list-element">{{essence.id}} {{essence.name}}</div>
+                        </li>
+                    </ul>
+                    
+                    <h3>EPIC</h3>
+                    <ul class="essence-list">
+                        <li *ngFor="let essence of getEssencesOfRarity(4, getEssencesInLextograficOrder())" (click)="onSelect(essence)" align=left>
+                            <div class="list-element">{{essence.id}} {{essence.name}}</div>
+                        </li>
+                    </ul>
+                    
+                    <h3>LEGENDARY</h3>
+                    <ul class="essence-list">
+                        <li *ngFor="let essence of getEssencesOfRarity(5, getEssencesInLextograficOrder())" (click)="onSelect(essence)" align=left>
+                            <div class="list-element">{{essence.id}} {{essence.name}}</div>
+                        </li>
+                    </ul>
+                </div>
+                <div *ngIf="displayConfluences">
+                    <h3>CONFLUENCES</h3>
+                    <ul class="essence-list">
+                        <li *ngFor="let essence of getConfluenceEssences()" (click)="onSelect(essence)" align=left>
+                            <div class="list-element">{{essence.id}} {{essence.name}}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </th>
-        <th>
-            <app-essence-details [essence]="selectedEssence" align=left></app-essence-details>
-        </th>
+        <div style="padding-left: 1vw">
+            <th class="essence-display">
+                <div style="min-height: 80vh;">
+                    <app-essence-details [essence]="selectedEssence" align=left></app-essence-details>
+                </div>
+            </th>
+        </div>
     </tr>
 </table>
